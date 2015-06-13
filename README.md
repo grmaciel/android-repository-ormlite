@@ -73,7 +73,7 @@ public abstract class MyBaseRepository<T> extends BaseOrmLiteRepository<T, Long>
     }
 }
 ```
-**Four step, now it's time to create a real repository:**
+**Fourth step, now it's time to create a real repository:**
 ```
 public class MyModelRepository extends MyBaseRepository<MyModel> {
     public MyModelRepository(Context context) {
@@ -84,7 +84,7 @@ public class MyModelRepository extends MyBaseRepository<MyModel> {
 
 This will provide your repository with a bunch of already implemented methods to persist, delete and a persistence hierarchy architecture to help you organize your application.
 
-**Five step, program to an interface:**
+**Fifth step, program to an interface:**
 
 People usually referes the repository to its interface rather than the concrete class, specially on web applications that tend to be modularized as a microservice. To achieve this you could be also implementing a interface to be used in your project, like this:
 ```
