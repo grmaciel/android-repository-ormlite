@@ -3,7 +3,7 @@ This is a project that aims to help people with their persistence layer using th
 
 ## Setup
 
-First you have to setup this project running in your local AndroidStudio or a Local Nexus Sonatype. You should use as a as dependency for your main project, not as a module since the object (at least in my view) is to use it across multiple projects.
+First you have to setup this project running in your local AndroidStudio or a Local Nexus Sonatype. You should use as a as dependency for your main project, not as a module since the objective (at least in my view) is to use it across multiple projects.
 
 **Referencing a project from another project with gradle**
 
@@ -28,7 +28,7 @@ and you are all set to use the library.
 **First step, create your own DbHelper**
 
 ```
-public class MyCustomDBHelper extends AbstractDBHelper {
+public class MyCustomDBHelper extends BaseDBHelper {
     public MyCustomDBHelper(Context context, String databaseName) {
         super(context, databaseName);
     }
