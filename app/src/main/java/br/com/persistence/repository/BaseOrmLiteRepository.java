@@ -121,10 +121,6 @@ public abstract class BaseOrmLiteRepository<T, Id> implements IRepository<T, Id>
         return where.queryForFirst();
     }
 
-    /**
-     * Remove todos os registros da tabela.
-     * Utilizar com cuidado, preferencialmente com uma transação.
-     */
     public void clear() throws SQLException {
         TableUtils.clearTable(getPersistenceManager().getConnectionSource(), genericType);
     }
@@ -141,23 +137,10 @@ public abstract class BaseOrmLiteRepository<T, Id> implements IRepository<T, Id>
         getPersistenceManager().getWritableDatabase().endTransaction();
     }
 
-    private Where<T, Id> getWhereSingleton() throws SQLException {
-        Boolean reset = false;
-        if (reset) {
-            return getWhere();
-        }
-
-        if (where == null) {
-            where = getWhere();
-        }
-
-        return where;
-    }
-
     protected static AbstractDBHelper getPersistenceManager() {
         if (instance == null) {
             try {
-                Log.d("", "CRIANDO PERSISTENCE MANAGER");
+                Log.d("", "CREATING PERSISTENCE MANAGER");
                 instance = helperClass.getDeclaredConstructor(Context.class)
                         .newInstance(context);
             } catch (Exception e) {

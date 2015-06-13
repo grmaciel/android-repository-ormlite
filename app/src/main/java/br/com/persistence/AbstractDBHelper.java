@@ -17,7 +17,7 @@ import java.util.List;
 public abstract class AbstractDBHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
-    protected abstract List<Class<?>> getTableClassList();
+    protected abstract Class<?>[] getTableClassList();
 
     public AbstractDBHelper(Context context,
                             String databaseName) {
