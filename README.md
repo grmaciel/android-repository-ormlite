@@ -84,10 +84,28 @@ public class MyModelRepository extends MyBaseRepository<MyModel> {
 
 This will provide your repository with a bunch of already implemented methods to persist, delete and a persistence hierarchy architecture to help you organize your application.
 
+**Five step, program to an interface:**
+
+People usually referes the repository to its interface rather than the concrete class, specially on web applications that tend to be modularized as a microservice. To achieve this you could be also implementing a interface to be used in your project, like this:
+```
+public interface IMyRepository extends IRepository<MyModel, Long> {
+}
+```
+And now your repository could implement it:
+```
+public class MyModelRepository extends MyBaseRepository<MyModel> implements IMyModelRepository {
+    public MyModelRepository(Context context) {
+        super(context);
+    }
+}
+```
+
+I don't like much the idea of having to declare the model type in the repository for the ```MyBaseRepository``` and also in the interface for the ```IRepository``` interface, i think it gets a little cumbersome but the freedom to have reference to abstraction and the gain is worth it. I'm also open on how to improve this in the architecture.
+
 ## Considerations
 
 This is a basic architecture that i've built researching on how to organize a repository pattern and seeing how other people do it. I'm open to discussion and improment on the subject, so feel free to contact me at anytime.
 
 ## What's next
 
-I think that the architecture could be evolved a bit on the Where context to make it easier to build queries. It would be cool if we had a base repository factory that would help on the creation of the repositories. That will the creation would be centralized and could use dependency injection to help the test proccess.
+I think that the architecture could be evolved a bit on the Where context to make it easier to build queries. It would be cool if we had a base repository factory that would help on the creation of the repositories so people could depend on its abstraction. That will the creation would be centralized and could use dependency injection to help the test proccess.
