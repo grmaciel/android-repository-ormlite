@@ -29,8 +29,10 @@ and you are all set to use the library.
 
 ```
 public class MyCustomDBHelper extends BaseDBHelper {
-    public MyCustomDBHelper(Context context, String databaseName) {
-        super(context, databaseName);
+    private static final String TABLE_NAME = "mydatabase.db";
+    
+    public MyCustomDBHelper(Context context) {
+        super(context, TABLE_NAME);
     }
 
     @Override
