@@ -110,4 +110,4 @@ This is a basic architecture that i've built researching on how to organize a re
 
 ## What's next
 
-I think that the architecture could be evolved a bit on the Where context to make it easier to build queries. It would be cool if we had a base repository factory that would help on the creation of the repositories so people could depend on its abstraction. That will the creation would be centralized and could use dependency injection to help the test proccess.
+I think that the architecture could be evolved a bit on the Where context to make it easier to build queries. I think a good way to work with the repositories would be using a dependency injection to create the repositories and for that i would advice dagger (http://square.github.io/dagger/)
